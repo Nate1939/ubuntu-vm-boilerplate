@@ -24,7 +24,7 @@ ln -s /etc/machine-id /var/lib/dbus/
 
 echo "Generating SSH server keys"
 ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa -y
-ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa -y
+ssh-keygen -f /etc/ssh/ssh_host_ed25519_key -N '' -t ed25519 -y
 ssh-keygen -f /etc/ssh/ssh_host_ecdsa_key -N '' -t ecdsa -b 521 -y
 
 echo "Setting Hostname"
