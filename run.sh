@@ -23,9 +23,9 @@ dbus-uuidgen --ensure=/etc/machine-id
 ln -s /etc/machine-id /var/lib/dbus/
 
 echo "Generating SSH server keys"
-ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa -y
-ssh-keygen -f /etc/ssh/ssh_host_ed25519_key -N '' -t ed25519 -y
-ssh-keygen -f /etc/ssh/ssh_host_ecdsa_key -N '' -t ecdsa -b 521 -y
+echo "y" | ssh-keygen -C "root@$newHostname" -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa -y
+echo "y" | ssh-keygen -C "root@$newHostname" -f /etc/ssh/ssh_host_ed25519_key -N '' -t ed25519 -y
+echo "y" | ssh-keygen -C "root@$newHostname" -f /etc/ssh/ssh_host_ecdsa_key -N '' -t ecdsa -b 521 -y
 
 echo "Setting Hostname"
 sed -i "s/$HOSTNAME/$newHostname/g" /etc/hosts
