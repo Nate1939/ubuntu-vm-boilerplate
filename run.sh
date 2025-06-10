@@ -1,10 +1,10 @@
 #!/bin/bash
 
-source /etc/lsb-release
+source /etc/os-release
 
-if [[ "$DISTRIB_ID" -ne "Ubuntu" ]]; then
+if [[ "$ID" != "debian" && "$ID" != "ubuntu" ]]; then
   echo "No action taken..."
-  echo "Are you sure this is an Ubuntu system?"
+  echo "Are you sure this is a Debian or Ubuntu system?"
   exit 1
 fi
 
